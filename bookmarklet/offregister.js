@@ -4,7 +4,7 @@ $(document).ready(function(){
  			function addone(){
  			   count++;
    			
-   				$('.offreg').jrumble({
+   				$('div').jrumble({
 	  			   x: count/50,
 	   			   y: count/50,
 	   			   rotation: count/10000,
@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     			});
     	
-    		$('.offreg').trigger('startRumble');
+    		$('div').trigger('startRumble');
 
     		setTimeout(addone, 10000);
   			}
