@@ -4,7 +4,7 @@ $(document).ready(function(){
  			function addone(){
  			   count++;
    			
-   				$('div').jrumble({
+   				$('.offreg').jrumble({
 	  			   x: count/50,
 	   			   y: count/50,
 	   			   rotation: count/10000,
@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     			});
     	
-    		$('div').trigger('startRumble');
+    		$('.offreg').trigger('startRumble');
 
     		setTimeout(addone, 10000);
   			}
@@ -153,17 +153,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 /*======================================================================================*/
 
 
-$( "<div id='aqua' class='clone' style='position:absolute; top:0; left:0; z-index=200;'></div>" ).appendTo( "body" );
+$( "<div id='black' class='clone' style='position:absolute; top:0; left:0; z-index=201;'></div>" ).appendTo( "body" );
+$("body").children().clone().appendTo('#black');
+$("#black").find('*').css({"color":"black"});
+
+$( "<div id='aqua' class='clone offreg' style='position:absolute; top:0; left:0; z-index=200;'></div>" ).appendTo( "body" );
 $("body").children().clone().appendTo('#aqua');
 // $("#aqua").children().css({"position":"absolute","top":"0","left":"0"});
 $("#aqua").find('*').css({"color":"aqua", "opacity":"0.5"});
 
-$( "<div id='magenta' class='clone' style='position:absolute; top:0; left:0; z-index=199;'></div>" ).appendTo( "body" );
+$( "<div id='magenta' class='clone offreg' style='position:absolute; top:0; left:0; z-index=199;'></div>" ).appendTo( "body" );
 $("#aqua").children().clone().appendTo('#magenta');
 // $("#magenta").children().css({"position":"absolute","top":"0","left":"0"});
 $("#magenta").find('*').css({"color":"fuchsia", "opacity":"0.5"});
 
-$( "<div id='yellow' class='clone' style='position:absolute; top:0; left:0; z-index=198;'></div>" ).appendTo( "body" );
+$( "<div id='yellow' class='clone offreg' style='position:absolute; top:0; left:0; z-index=198;'></div>" ).appendTo( "body" );
 $("#magenta").children().clone().appendTo('#yellow');
 // $("#yellow").children().css({"position":"absolute","top":"0","left":"0"});
 $("#yellow").find('*').css({"color":"yellow", "opacity":"0.8"});
