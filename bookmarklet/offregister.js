@@ -155,7 +155,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 $( "<div id='black' class='clone' style='position:absolute; top:0; left:0; z-index=201;'></div>" ).appendTo( "body" );
 $("body").children().clone().appendTo('#black');
-$("#black").find('*').css({"color":"black"});
+$("#black").find('*').css({"color":"black" "opacity":"0.5"});
 
 $( "<div id='aqua' class='clone offreg' style='position:absolute; top:0; left:0; z-index=200;'></div>" ).appendTo( "body" );
 $("body").children().clone().appendTo('#aqua');
