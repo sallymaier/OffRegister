@@ -1,25 +1,31 @@
 $(document).ready(function(){
- 			 var count = 0;
+  var distance = 0,
+          intensity = 50, // higher values for less intensity
+          speed = 0, // higher values are slower
+          increase = 10000, // number of milliseconds before distance is increased. higher numbers=slower increase.
+          offregclass = 'offreg'; // name of class to be affected.
 
- 			function addone(){
- 			   count++;
-   			
-   				$('.offreg').jrumble({
-	  			   x: count/50,
-	   			   y: count/50,
-	   			   rotation: count/10000,
-	   			   speed: 0
+        console.log(distance, intensity, speed, increase, offregclass);
 
-    			});
-    	
-    		$('.offreg').trigger('startRumble');
 
-    		setTimeout(addone, 10000);
-  			}
 
-  			addone();
-		});
+  function addone(){
+     distance++;
+    
+      $('.' + offregclass).jrumble({ 
+         x: distance/intensity,
+         y: distance/intensity,
+         rotation: distance/intensity/intensity,
 
+      });
+  
+    $('.' + offregclass).trigger('startRumble');
+
+    setTimeout(addone, 10000);
+    }
+
+      addone();
+});
 /*
 jRumble v1.3 - http://jackrugile.com/jrumble
 by Jack Rugile - http://jackrugile.com
@@ -39,8 +45,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     /* Options
     /*========================================================*/
     var defaults = {
-      x: 2,
-      y: 2,
+      x: 2, //this is controled in Off-Register by distance
+      y: 2, //this is controled in Off-Register by distance
       rotation: 1,
       speed: 15,
       opacity: false,
@@ -157,17 +163,17 @@ $( "<div id='black' class='clone' style='position:absolute; top:0; left:0; z-ind
 $("body").children().clone().appendTo('#black');
 $("#black").find('*').css({"color":"black", "opacity":"0.5"});
 
-$( "<div id='aqua' class='clone offreg' style='position:absolute; top:0; left:0; z-index=200;'></div>" ).appendTo( "body" );
+$( "<div id='aqua' class='clone'" + offregclass + "' style='position:absolute; top:0; left:0; z-index=200;'></div>" ).appendTo( "body" );
 $("body").children().clone().appendTo('#aqua');
 // $("#aqua").children().css({"position":"absolute","top":"0","left":"0"});
 $("#aqua").find('*').css({"color":"aqua", "opacity":"0.5"});
 
-$( "<div id='magenta' class='clone offreg' style='position:absolute; top:0; left:0; z-index=199;'></div>" ).appendTo( "body" );
+$( "<div id='magenta' class='clone " + offregclass + "' style='position:absolute; top:0; left:0; z-index=199;'></div>" ).appendTo( "body" );
 $("#aqua").children().clone().appendTo('#magenta');
 // $("#magenta").children().css({"position":"absolute","top":"0","left":"0"});
 $("#magenta").find('*').css({"color":"fuchsia", "opacity":"0.5"});
 
-$( "<div id='yellow' class='clone offreg' style='position:absolute; top:0; left:0; z-index=198;'></div>" ).appendTo( "body" );
+$( "<div id='yellow' class='clone " + offregclass + "' style='position:absolute; top:0; left:0; z-index=198;'></div>" ).appendTo( "body" );
 $("#magenta").children().clone().appendTo('#yellow');
 // $("#yellow").children().css({"position":"absolute","top":"0","left":"0"});
 $("#yellow").find('*').css({"color":"yellow", "opacity":"0.8"});
